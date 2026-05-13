@@ -1,0 +1,11 @@
+[workspace]
+authors = ["jiahua <jiahuazh_07@outlook.com>"]
+channels = ["conda-forge"]
+name = "llm-lab-4"
+platforms = ["osx-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+python = ">=3.14.4,<3.15"
