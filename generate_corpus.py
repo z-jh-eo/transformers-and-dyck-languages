@@ -88,7 +88,7 @@ if __name__ == "__main__":
     parser.add_argument("--max-depth",  type = int, default = 4)
     parser.add_argument("--size",       type = int, default = 5_000)
     parser.add_argument("--k",          type = int, default = 2)
-    parser.add_argument("--seed",       type = int, default=42)
+    parser.add_argument("--seed",       type = int, default = 42)
     parser.add_argument("--output",     type = str, default = "dyck.jsonl")
     args = parser.parse_args()
     
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
             if random.random() < 0.5:
                 is_corrupted = True
-                actual, error, pos, e_tok = insert_error(original, args.k)
+                actual, error, e_pos, e_tok = insert_error(original, args.k)
             else:
                 is_corrupted = False
                 actual, error, e_pos, e_tok = original, None, None, None
