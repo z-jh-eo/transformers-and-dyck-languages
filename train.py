@@ -238,7 +238,7 @@ def main():
             patience_ctr = 0
             ckpt = {
                 "epoch":       epoch,
-                "config":      config,
+                "config":      vars(config),
                 "model_state": model.state_dict(),
                 "optim_state": optimizer.state_dict(),
                 "dev_f1":      best_f1,

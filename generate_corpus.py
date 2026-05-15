@@ -40,7 +40,7 @@ def generate_dyck(length: int, max_depth: int, k: int = 2):
     
     res = "".join(result) if not stack else None
 
-    return res, depth
+    return res, max_depth_reached
 
 
 def insert_error(dyck: str, k: int = 2):

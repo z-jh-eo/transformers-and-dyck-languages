@@ -69,6 +69,9 @@ def build_correction_labels(record: dict, max_len: int = MAX_LEN) -> list[int]:
     err_tok = record["error_token"]
     enc_pos = 1 + pos                          # shift by 1 for CLS
 
+    if enc_pos >= max_len:
+        return labels  # error position is truncated out, can't label it
+
     if error_type == "e1":
         # Closer was deleted — we need to INSERT it back
         labels[enc_pos] = LBL_INSERT_OFFSET + BRACKETS.index(err_tok)
