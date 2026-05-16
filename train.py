@@ -65,6 +65,12 @@ def get_args():
         help="Overfit on 64 examples for 10 epochs to verify the pipeline.",
     )
     p.add_argument("--seed", type=int, default=42)
+
+    p.add_argument(
+        "--use-rel-pos",
+        action="store_true",
+        help="Q18: use T5-style relative position bias instead of absolute PE.",
+    )
     return p.parse_args()
 
 
@@ -204,6 +210,7 @@ def main():
             n_head=args.n_head,
             d_model=args.d_model,
             dropout=args.dropout,
+            use_rel_pos=args.use_rel_pos,
         )
         model = DyckTransformer(config).to(device)
         lr = args.lr
